@@ -47,7 +47,7 @@ if __name__ == '__main__':
         # 文件名
         filename_no_path = os.path.basename(file)
         rj_code = get_rj_code(filename_no_path)
-        path = os.path.realpath(file)
+        path = os.path.dirname(file)
         url = "https://www.dlsite.com/maniax/work/=/product_id/" + rj_code + ".html/?locale=zh_CN"
         name = rename(url, filename_no_path)
         if name is not None:
