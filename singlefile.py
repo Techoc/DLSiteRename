@@ -1,6 +1,5 @@
 import os.path
 import re
-import sys
 
 from spider import Spider
 
@@ -18,15 +17,19 @@ def re_name(url, filename):
     spider = Spider(url)
     media = spider.get_media()
     suffix = os.path.splitext(filename)[-1]
-    real_name = "({}) [{}][{}][{}] {}" \
-        .format(media.work_type, media.datetime, rj_code, media.community, media.title)
-    name = re.sub(r'[\\/:*?"<>|]', '-', real_name)  # 去掉非法字符
-    print(' \033[1;35m {} \033[0m'.format(name))
-    return name + suffix
+    if media is not None:
+        real_name = "({}) [{}][{}][{}] {}" \
+            .format(media.work_type, media.datetime, rj_code, media.community, media.title)
+        name = re.sub(r'[\\/:*?"<>|]', '-', real_name)  # 去掉非法字符
+        print(' \033[1;35m {} \033[0m'.format(name))
+        return name + suffix
+    else:
+        print("\033[31m{}\033[0m".format(filename))
 
 
 if __name__ == '__main__':
-    file = sys.argv[1]
+    # file = sys.argv[1]
+    file = r"D:\Downloads\IDMDownloads\Compressed\BaiduPCS-Go-v3.8.3-windows-x64\Downloads\1380213802_寂烨不曾来过\RJ350945.rar"
     # path = ['F:\收藏\DLSite\汉化']
     # 文件名
     print("\033[0;36m{}\033[0m".format(file))

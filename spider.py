@@ -46,7 +46,7 @@ class Spider:
                 0]
             import time
             # 将获取到的年月日转换为 - 连接
-            split_time = time.strptime(datetime, "%Y年%m月%d日")
+            split_time = time.strptime(datetime, "%Y年%m月%d日 %H点")
             # {}-{:0>2d}-{:0>2d} 月份天数补零
             time = "{}-{:0>2d}-{:0>2d}".format(split_time.tm_year, split_time.tm_mon, split_time.tm_mday)
             work_type = html_data.xpath("//table[@id='work_outline']//div[@id='category_type']//span/text()")[0]
@@ -54,5 +54,6 @@ class Spider:
                 work_type = "同人音声"
             community = html_data.xpath("//span[@class='maker_name']/a/text()")[0]
             return DlSite(title, time, work_type, community)
-        except BaseException:
+        except Exception as e:
+            print(e)
             return None

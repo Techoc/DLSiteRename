@@ -1,6 +1,6 @@
 class DlSite:
 
-    def __init__(self, title, datetime, work_type, community):
+    def __init__(self, title=None, datetime=None, work_type=None, community=None):
         """
 
         :param title: 标题
