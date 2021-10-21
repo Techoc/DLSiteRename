@@ -28,19 +28,14 @@ def re_name(url, filename):
 if __name__ == '__main__':
     file = sys.argv[1]
     # path = ['F:\收藏\DLSite\汉化']
-    # 如果是文件夹 则遍历文件夹下的文件
-    if os.path.isdir(file):
-        print("请选择文件而不是文件夹")
-    # 如果是文件 则直接修改文件名
+    # 文件名
+    print("\033[0;36m{}\033[0m".format(file))
+    filename_no_path = os.path.basename(file)
+    rj_code = get_rj_code(filename_no_path)
+    path = os.path.dirname(file)
+    url = "https://www.dlsite.com/maniax/work/=/product_id/" + rj_code + ".html/?locale=zh_CN"
+    name = re_name(url, filename_no_path)
+    if name is not None:
+        os.rename(file, path + os.sep + name)
     else:
-        # 文件名
-        print("\033[0;36m{}\033[0m".format(file))
-        filename_no_path = os.path.basename(file)
-        rj_code = get_rj_code(filename_no_path)
-        path = os.path.dirname(file)
-        url = "https://www.dlsite.com/maniax/work/=/product_id/" + rj_code + ".html/?locale=zh_CN"
-        name = re_name(url, filename_no_path)
-        if name is not None:
-            os.rename(file, path + name + os.sep)
-        else:
-            print("\033[31m{}\033[0m".format(file))
+        print("\033[31m{}\033[0m".format(file))

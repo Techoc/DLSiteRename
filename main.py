@@ -30,6 +30,7 @@ def rename(url, filename):
 
 
 if __name__ == '__main__':
+    # file = r"D:\OneDrive\ASMR\OneDrive - techoc\收藏\RJ"
     file = sys.argv[1]
     # path = ['F:\收藏\DLSite\汉化']
     # 如果是文件夹 则遍历文件夹下的文件
@@ -39,7 +40,10 @@ if __name__ == '__main__':
             url = "https://www.dlsite.com/maniax/work/=/product_id/" + rj_code + ".html/?locale=zh_CN"
             name = rename(url, filename)
             if name is not None:
-                os.rename(file + "\\" + filename, file + "\\" + name)
+                try:
+                    os.rename(file + "\\" + filename, file + "\\" + name)
+                except:
+                    print("\033[31m{}\033[0m".format(filename))
             else:
                 print("\033[31m{}\033[0m".format(filename))
     # 如果是文件 则直接修改文件名
