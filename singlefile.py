@@ -29,7 +29,7 @@ def re_name(url, filename):
 
 if __name__ == '__main__':
     # file = sys.argv[1]
-    file = r"D:\Downloads\IDMDownloads\Compressed\BaiduPCS-Go-v3.8.3-windows-x64\Downloads\1380213802_寂烨不曾来过\RJ350945.rar"
+    file = r"D:\Downloads\RJ345631 [Sumikko Circle] 与身娇柔弱对你一心一意的未婚妻进行甜蜜播种爱爱 (CV 大山チロル) _ WAV.rar"
     # path = ['F:\收藏\DLSite\汉化']
     # 文件名
     print("\033[0;36m{}\033[0m".format(file))
